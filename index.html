@@ -405,7 +405,7 @@
   </svg>
 </a>
 
-<!-- SCRIPT DE GRAVAÇÃO NO FORMSPREE + REDIRECIONAMENTO WHATSAPP -->
+<!-- SCRIPT COM ENDPOINT ATUALIZADO DO FORMSPREE -->
 <script>
   document.getElementById('leadForm').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -419,10 +419,10 @@
     const whatsapp = document.getElementById('whatsapp').value;
     const objetivo = document.getElementById('objetivo').value;
     
-    // 2. Endpoint do Formspree
-    const formspreeEndpoint = "https://formspree.io/f/mqaeorze"; 
+    // 2. Endpoint correto do seu Formspree
+    const formspreeEndpoint = "https://formspree.io/f/xnpnqknj"; 
     
-    // 3. Envio assíncrono para salvar no banco de dados / planilha
+    // 3. Envio assíncrono para salvar na sua base de dados do Formspree
     fetch(formspreeEndpoint, {
       method: 'POST',
       headers: {
@@ -445,7 +445,7 @@
       submitBtn.innerText = "Falar no WhatsApp Agora";
       submitBtn.disabled = false;
     }).catch(error => {
-      // Fallback em caso de lentidão de rede: abre o WhatsApp de qualquer forma
+      // Fallback em caso de lentidão de rede
       const numeroWhatsapp = "5512974089001";
       const texto = `Olá, Raphaella! Meu nome é ${nome}.\nTenho interesse em: ${objetivo}.\nMeu contato: ${whatsapp}`;
       window.open(`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
