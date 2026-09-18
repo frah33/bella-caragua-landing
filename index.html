@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bella Caraguá Imóveis | Litoral Norte SP</title>
+  <style>
+    :root {
+      --primary: #c59b27;
+      --dark: #121212;
+      --card-bg: #1e1e1e;
+      --text: #f4f4f4;
+      --text-muted: #aaa;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--dark); color: var(--text); line-height: 1.6; }
+    
+    header { background: #000; padding: 20px; text-align: center; border-bottom: 2px solid var(--primary); }
+    header h1 { color: var(--primary); font-size: 1.8rem; letter-spacing: 1px; }
+    header p { font-size: 0.9rem; color: var(--text-muted); }
+
+    .hero { padding: 40px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
+    .hero h2 { font-size: 2rem; margin-bottom: 15px; }
+    .hero p { color: var(--text-muted); margin-bottom: 25px; }
+
+    .creci-badge {
+      display: inline-block;
+      background: rgba(197, 155, 39, 0.15);
+      color: var(--primary);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      border: 1px solid var(--primary);
+    }
+
+    .form-container {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 12px;
+      max-width: 450px;
+      margin: 0 auto 50px auto;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+      border: 1px solid #333;
+    }
+    .form-container h3 { margin-bottom: 15px; color: var(--primary); font-size: 1.2rem; }
+    .form-group { margin-bottom: 15px; text-align: left; }
+    .form-group label { display: block; font-size: 0.85rem; margin-bottom: 5px; color: var(--text-muted); }
+    .form-group input, .form-group select {
+      width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #444; background: #2a2a2a; color: #fff; font-size: 1rem;
+    }
+    .btn-submit {
+      width: 100%; padding: 14px; border: none; border-radius: 6px; background: var(--primary); color: #000; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s;
+    }
+    .btn-submit:hover { background: #d4a72c; }
+
+    .section-title { text-align: center; margin-bottom: 30px; color: var(--primary); font-size: 1.5rem; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto 50px auto; padding: 0 20px; }
+    .card { background: var(--card-bg); border-radius: 8px; overflow: hidden; border: 1px solid #333; }
+    .card-body { padding: 20px; }
+    .card-tag { display: inline-block; background: var(--primary); color: #000; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin-bottom: 10px; }
+    .card h4 { font-size: 1.2rem; margin-bottom: 8px; }
+    .card p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 15px; }
+
+    footer { background: #000; text-align: center; padding: 30px 20px; border-top: 1px solid #333; color: var(--text-muted); font-size: 0.85rem; }
+    footer strong { color: #fff; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>BELLA CARAGUÁ</h1>
+    <p>CONSULTORIA IMOBILIÁRIA</p>
+  </header>
+
+  <section class="hero">
+    <div class="creci-badge">CRECI PF 268.156 | CRECI PJ 45.442</div>
+    <h2>O Seu Refúgio ou Investimento Seguro no Litoral Norte de SP</h2>
+    <p>Atendimento exclusivo por Raphaella Leite. Encontre imóveis de alto padrão ou oportunidades com alta valorização em Caraguatatuba.</p>
+
+    <!-- Formulário de Qualificação e Captura -->
+    <div class="form-container">
+      <h3>Receber Atendimento Personalizado</h3>
+      <form id="leadForm">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp (com DDD)</label>
+          <input type="tel" id="whatsapp" placeholder="(12) 99999-9999" required>
+        </div>
+        <div class="form-group">
+          <label for="objetivo">Qual seu objetivo principal?</label>
+          <select id="objetivo" required>
+            <option value="" disabled selected>Selecione uma opção...</option>
+            <option value="Comprar para morar">Comprar para morar</option>
+            <option value="Investir / Veraneio">Investir / Veraneio</option>
+            <option value="Avaliar / Vender meu imóvel">Avaliar / Vender meu imóvel</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">Falar com a Raphaella no WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <h3 class="section-title">Imóveis em Destaque</h3>
+  
+  <div class="portfolio-grid">
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag">Exclusividade</span>
+        <h4>Villagio Tabatinga</h4>
+        <p>Casas modernas e espaçosas a poucos passos da Praia da Tabatinga. Condomínio exclusivo com piscina privativa.</p>
+        <small style="color:var(--primary)">Apenas 5 unidades disponíveis!</small>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag">Locação Definitiva</span>
+        <h4>Apartamento Frente Mar</h4>
+        <p>Praia Massaguaçu. 3 quartos (1 suíte), ampla sala, piscina de frente para o mar e vista espetacular.</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="card-body">
+        <span class="card-tag">Financiamento Caixa</span>
+        <h4>Sobrados Planejados</h4>
+        <p>Sobrados a partir de 61,56 m² por R$ 352.900,00 na entrada da cidade. Excelente potencial de valorização.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>Bella Caraguá Consultoria Imobiliária</strong></p>
+    <p>Contato: (12) 97408-9001 | leite.raphaella@gmail.com</p>
+    <p>Caraguatatuba - SP | Litoral Norte de São Paulo</p>
+  </footer>
+
+  <script>
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const nome = document.getElementById('nome').value;
+      const whatsapp = document.getElementById('whatsapp').value;
+      const objetivo = document.getElementById('objetivo').value;
+      
+      const numeroWhatsapp = "5512974089001"; // Número oficial extraído do cartão de visita
+      
+      const texto = `Olá, Raphaella! Meu nome é *${nome}*.\nTenho interesse em: *${objetivo}*.\nMeu contato: ${whatsapp}`;
+      const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
+      
+      window.open(url, '_blank');
+    });
+  </script>
+
+</body>
+</html>
