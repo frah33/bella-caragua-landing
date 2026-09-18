@@ -186,7 +186,7 @@
             <option value="Avaliar / Vender meu imóvel">Avaliar / Vender meu imóvel</option>
           </select>
         </div>
-        <button type="submit" class="btn-submit">Falar no WhatsApp Agora</button>
+        <button type="submit" id="submitBtn" class="btn-submit">Falar no WhatsApp Agora</button>
       </form>
     </div>
   </div>
@@ -405,25 +405,53 @@
   </svg>
 </a>
 
+<!-- SCRIPT DE GRAVAÇÃO NO FORMSPREE + REDIRECIONAMENTO WHATSAPP -->
 <script>
   document.getElementById('leadForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    // Captura dos dados
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.innerText = "Enviando...";
+    submitBtn.disabled = true;
+
+    // 1. Captura dos dados do formulário
     const nome = document.getElementById('nome').value;
     const whatsapp = document.getElementById('whatsapp').value;
     const objetivo = document.getElementById('objetivo').value;
     
-    // Número direto no formato internacional
-    const numeroWhatsapp = "5512974089001";
+    // 2. Endpoint do Formspree
+    const formspreeEndpoint = "https://formspree.io/f/mqaeorze"; 
     
-    // Formatação da mensagem sem quebras de codificação
-    const texto = `Olá, Raphaella! Meu nome é ${nome}.\nTenho interesse em: ${objetivo}.\nMeu contato: ${whatsapp}`;
-    
-    // Redirecionamento direto para a conversa
-    const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
-    
-    window.open(url, '_blank');
+    // 3. Envio assíncrono para salvar no banco de dados / planilha
+    fetch(formspreeEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        Nome: nome,
+        WhatsApp: whatsapp,
+        Objetivo: objetivo,
+        DataEnvio: new Date().toLocaleString('pt-BR')
+      })
+    }).then(response => {
+      // 4. Redirecionamento limpo para o WhatsApp da corretora
+      const numeroWhatsapp = "5512974089001";
+      const texto = `Olá, Raphaella! Meu nome é ${nome}.\nTenho interesse em: ${objetivo}.\nMeu contato: ${whatsapp}`;
+      const url = `https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`;
+      
+      window.open(url, '_blank');
+      submitBtn.innerText = "Falar no WhatsApp Agora";
+      submitBtn.disabled = false;
+    }).catch(error => {
+      // Fallback em caso de lentidão de rede: abre o WhatsApp de qualquer forma
+      const numeroWhatsapp = "5512974089001";
+      const texto = `Olá, Raphaella! Meu nome é ${nome}.\nTenho interesse em: ${objetivo}.\nMeu contato: ${whatsapp}`;
+      window.open(`https://wa.me/${numeroWhatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
+      submitBtn.innerText = "Falar no WhatsApp Agora";
+      submitBtn.disabled = false;
+    });
   });
 </script>
 
